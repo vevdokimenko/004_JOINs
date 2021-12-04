@@ -42,7 +42,7 @@ WHERE NameBook LIKE 'Microsoft%'
   AND NameBook NOT LIKE '%Windows';
 
 # 7. Вывести названия книг, тематику, автора (полное имя), цена одной страницы которых менее 10 центов.
-SELECT NameBook, NameTheme, FirstName, LastName, (Price / Pages) AS OnePagePrice
+SELECT NameBook, NameTheme, CONCAT(FirstName, ' ', LastName) AS Author, (Price / Pages) AS OnePagePrice
 FROM Books
          JOIN Authors A ON A.ID_AUTHOR = Books.ID_AUTHOR
          JOIN Themes T ON T.ID_THEME = Books.ID_THEME
